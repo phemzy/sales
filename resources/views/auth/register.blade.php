@@ -37,6 +37,10 @@
 <input type='hidden' name='description_1' value='Registration Fee' />
 <input type='hidden' name='price_1' value='10000' />
 
+<input type='hidden' name='notify_url' value='{{ route('payment.status') }}' />
+<input type='hidden' name='success_url' value='{{ route('payment.status') }}' />
+<input type='hidden' name='fail_url' value='{{ route('payment.status') }}' />
+
 <input type='hidden' name='total' value='10000' />
 
 <input type='image' src='http://voguepay.com/images/buttons/buynow_blue.png' alt='Submit' />
