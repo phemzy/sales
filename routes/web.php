@@ -25,6 +25,6 @@ Route::name('register.new')->get('register/new', function(){
 });
 
 Route::name('register.new')->post('register/new', function(){
-	dd(request()->all());
+	dd(request('transaction_id'));
 });
 
