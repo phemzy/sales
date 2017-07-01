@@ -5,14 +5,12 @@
     @if(!Request::query('plan'))
         @include('partials.signup')
     @else
-<div id="js__scroll-to-section" class="container g-padding-y-80--xs g-padding-y-125--xsm">
-<div class="row g-hor-centered-row--md g-row-col--5 g-margin-b-80--xs g-margin-b-100--md">
     <!-- Subscribe -->
     <div class="g-bg-color--primary-to-blueviolet-ltr">
         <div class="g-container--sm g-text-center--xs g-padding-y-80--xs g-padding-y-125--xsm">
             <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-                    <form class="center-block g-width-350--xs g-bg-color--white-opacity-lightest g-box-shadow__blueviolet-v1 g-padding-x-40--xs g-padding-y-60--xs g-radius--4">
+                <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+                    <form class="g-bg-color--white-opacity-lightest g-box-shadow__blueviolet-v1 g-padding-x-40--xs g-padding-y-60--xs g-radius--4">
                         <div class="g-text-center--xs g-margin-b-40--xs">
                             <h2 class="g-font-size-30--xs g-color--white">Signup</h2>
                             <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-25--xs">PLAN = {{ Request::query('plan') }}</p>
@@ -48,8 +46,6 @@
             </div>
         </div>
     </div>
-</div>
-</div>
     <!-- End Subscribe -->
 
     @endif
