@@ -20,3 +20,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::name('payment.status')->post('payment/status', 'PaymentController@paymentStatus');
+Route::name('register.new')->get('register/new', function(){
+	return view('auth.register');
+});
+
+Route::name('register.new')->post('register/new', function(){
+	dd(request()->all());
+});
+
