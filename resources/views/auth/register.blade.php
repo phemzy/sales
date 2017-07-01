@@ -10,42 +10,66 @@
         <div class="g-container--sm g-text-center--xs g-padding-y-80--xs g-padding-y-125--xsm">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-                    <form class="g-bg-color--white-opacity-lightest g-box-shadow__blueviolet-v1 g-padding-x-40--xs g-padding-y-60--xs g-radius--4">
+                    <form class="g-bg-color--white-opacity-lightest g-box-shadow__blueviolet-v1 g-padding-x-40--xs g-padding-y-60--xs g-radius--4" method="post" action="{{ route('sale.user.register') }}" id="form">
+                        {{ csrf_field() }}
                         <div class="g-text-center--xs g-margin-b-40--xs">
-                            <h2 class="g-font-size-30--xs g-color--white">Signup</h2>
-                            <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-25--xs">PLAN = {{ Request::query('plan') }}</p>
+                            <h3 class="text-uppercase g-font-size-30--xs g-color--white">{{ Request::query('plan') }}</h3>
+                            <p class=" g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-25--xs"> Amount = &#8358;{{ number_format($plan->price, 2) }} </p>
                         </div>
-                        <div class="g-margin-b-30--xs">
-                            <input type="text" class="form-control s-form-v3__input" placeholder="* Name">
+                        <div class="g-margin-b-30--xs{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <input type="text" class="form-control s-form-v3__input" name="name" placeholder="* Name" value="{{ old('name') }}">
+                            @if ($errors->has('name'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
                         </div>
-                        <div class="g-margin-b-30--xs">
-                            <input type="email" class="form-control s-form-v3__input" placeholder="* Email">
+                        <div class="g-margin-b-30--xs{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <input type="email" class="form-control s-form-v3__input" name="email" placeholder="* Email" value="{{ old('email') }}">
+                            @if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
                         </div>
-                        <div class="g-margin-b-30--xs">
-                            <input type="password" class="form-control s-form-v3__input" placeholder="* Password">
+                        <div class="g-margin-b-30--xs{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <input type="password" class="form-control s-form-v3__input" name="password" placeholder="* Password">
+                            @if ($errors->has('password'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
                         </div>
+                        <input type="hidden" name="plan" value="{{ $plan->id }}">
                         <div class="g-text-center--xs">
-                            <button type="submit" class="text-uppercase btn-block s-btn s-btn--md s-btn--white-bg g-radius--50 g-padding-x-50--xs g-margin-b-20--xs">Signup</button>
-                            <!-- <a class="g-color--white g-font-size-13--xs" href="#">Forgot Password?</a> -->
+                            <button type="button" data-toggle="modal" data-target="#card" class="text-uppercase btn-block s-btn s-btn--md s-btn--white-bg g-radius--50 g-padding-x-50--xs g-margin-b-20--xs">Signup</button>
+                        </div>
+                        <div id="card" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2">Please review the following:</p>
+                              </div>
+                              <div class="modal-body" style="text-align: left;">
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">1. Before your registration can be completed, you are to pay your registration fee either through direct bank transfer or through online payment with your credit card. You have 24hrs to do this or your registration will expire.</p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">2. After complete registration, depending on which plan you choose, you will be provided with your referral link, with which you earn &#8358; 1,000.00 worth coupon for every user that signs up with it.</p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">3. Also, you will be provided with a printable payment invoice which serves as your entry tag on the sales day.</p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">4. You can then go ahead to the store and preorder your preferred item(s) which you will pick up on the sales day without stress.</p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">5. You are not limited to the items you preorder alone. On the sales day, you are free to buy as many as you want. [But you can't buy items that has been preordered by other users. The items you preorder are 100% yours.]</p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">6. The only acceptable cryptocurrencies are The Billion Coin (TBC), Greycoin (GRC) and Bitcoin (BTC)</p><br>
+                                   
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="s-btn s-btn--md btn-primary g-radius--50 g-padding-x-50--xs g-margin-b-20--xs pull-right" data-dismiss="modal">Sign Up</button>
+                              </div>
+                            </div>
+
+                          </div>
                         </div>
                     </form>
-                    <form method='POST' action='https://voguepay.com/pay/'>
-                   <input type='hidden' name='v_merchant_id' value='3704-0052968' />
-<input type='hidden' name='memo' value='July Flash Sales Registration Fee' />
-
-<input type='hidden' name='item_1' value='Registration' />
-<input type='hidden' name='description_1' value='Registration Fee' />
-<input type='hidden' name='price_1' value='10000' />
-
-<input type='hidden' name='notify_url' value='{{ route('payment.status') }}' />
-<input type='hidden' name='success_url' value='{{ route('payment.status') }}' />
-<input type='hidden' name='fail_url' value='{{ route('payment.status') }}' />
-
-<input type='hidden' name='total' value='10000' />
-
-<input type='image' src='http://voguepay.com/images/buttons/buynow_blue.png' alt='Submit' />
-
-</form>
                 </div>
             </div>
         </div>

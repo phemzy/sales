@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Plan;
 
 class RegisterController extends Controller
 {
@@ -37,6 +38,55 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    public function showRegistrationForm()
+    {
+        if(!request()->query('plan'))
+            return view('auth.register');
+        else{
+            $plan = Plan::where('name', request()->query('plan'))->first();
+            if($plan){
+                return view('auth.register', [
+                    'plan' => $plan
+                ]);
+            }
+            else
+                return back();
+        }
+            
+    }
+
+    public function registerSaleUser()
+    {
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6'
+        ]);
+
+        $name = explode(' ', strtolower(request('name')));
+
+        $n = collect($name);
+
+        $user = User::create([
+            'username' => uniqid(),
+            'email' => strtolower(request('email')) ,
+            'password' => bcrypt(request('password')),
+            'first_name' => ucfirst($n->first()),
+            'last_name' => ucfirst($n->last()),
+            'plan' => request('plan')
+        ]);
+
+        $user->profile()->create([]);
+        $user->account()->create([]);
+
+
+        \Auth::login($user);
+
+        return redirect()->route('home');
+
+
     }
 
     /**

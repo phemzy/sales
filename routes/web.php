@@ -16,15 +16,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::name('sale.user.register')->post('sale/user/register', 'Auth\RegisterController@registerSaleUser');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::name('payment.status')->post('payment/status', 'PaymentController@paymentStatus');
-Route::name('register.new')->get('register/new', function(){
-	return view('auth.register');
-});
-
-Route::name('register.new')->post('register/new', function(){
-	dd(request('transaction_id'));
-});
-

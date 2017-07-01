@@ -20,7 +20,7 @@
                             <span class="s-plan-v1__price-mark">&#8358;</span>
                             <span class="s-plan-v1__price-tag">10,000</span>
                         </div>
-                        <a href="register/new?plan=basic"><button type="button" class="text-uppercase s-btn s-btn--sm s-btn--primary-bg g-radius--50 g-padding-x-50--xs">Signup</button></a>
+                        <a href="register?plan=basic"><button type="button" class="text-uppercase s-btn s-btn--sm s-btn--primary-bg g-radius--50 g-padding-x-50--xs">Signup</button></a>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                             <span class="s-plan-v1__price-mark">&#8358;</span>
                             <span class="s-plan-v1__price-tag">15,000</span>
                         </div>
-                        <a href="register/new?plan=absolute"><button type="button" class="text-uppercase s-btn s-btn--sm s-btn--primary-bg g-radius--50 g-padding-x-50--xs">Signup</button></a>
+                        <a href="register?plan=absolute"><button type="button" class="text-uppercase s-btn s-btn--sm s-btn--primary-bg g-radius--50 g-padding-x-50--xs">Signup</button></a>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                             <span class="s-plan-v1__price-mark">&#8358;</span>
                             <span class="s-plan-v1__price-tag">20,000</span>
                         </div>
-                        <a href="register/new?plan=premium"><button type="button" class="text-uppercase s-btn s-btn--sm s-btn--primary-bg g-radius--50 g-padding-x-50--xs">Signup</button></a>
+                        <a href="register?plan=premium"><button type="button" class="text-uppercase s-btn s-btn--sm s-btn--primary-bg g-radius--50 g-padding-x-50--xs">Signup</button></a>
                     </div>
                 </div>
             </div>
