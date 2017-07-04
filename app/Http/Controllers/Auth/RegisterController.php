@@ -65,6 +65,8 @@ class RegisterController extends Controller
             'password' => 'required|min:6'
         ]);
 
+        $ref = session('referral');
+
         $name = explode(' ', strtolower(request('name')));
 
         $n = collect($name);
@@ -75,14 +77,19 @@ class RegisterController extends Controller
             'password' => bcrypt(request('password')),
             'first_name' => ucfirst($n->first()),
             'last_name' => ucfirst($n->last()),
-            'plan' => request('plan')
+            'plan' => request('plan'),
+            'referred_by' => $ref,
+            'affiliate_id' => uniqid() . str_random(4),
         ]);
 
         $user->profile()->create([]);
         $user->account()->create([]);
 
+        \Mail::to($user)->send(new \App\Mail\ThanksForSigningUp($user));
 
         \Auth::login($user);
+
+        session()->flash('success', 'You have been registered');
 
         return redirect()->route('home');
 

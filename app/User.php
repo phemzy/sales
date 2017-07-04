@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'first_name', 'last_name', 'plan'
+        'username', 'email', 'password', 'first_name', 'last_name', 'plan', 'referred_by', 'affiliate_id', 'order_count'
     ];
 
     /**
@@ -29,6 +29,12 @@ class User extends Authenticatable
     ];
 
     protected $events = ['created' => UserCreated::class];
+
+    public function updatePlan()
+    {
+        $this->plan = 1;
+        $this->save();
+    }
 
     public function payments()
     {
@@ -44,7 +50,7 @@ class User extends Authenticatable
     {
         $p = $this->payments()->where('status', 'successful')->where('type', 'Sales Registration Fee')->first();
 
-        $p ?: false;
+        return $p ? : false;
     }
 
     public function hasCompletedProfile()
@@ -126,5 +132,10 @@ class User extends Authenticatable
     public function hasTransactions()
     {
         return (bool) $this->transactions->count();
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }

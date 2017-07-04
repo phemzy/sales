@@ -25,6 +25,7 @@
         <!-- Theme Styles -->
         <link href="{{ URL::to('css/style.css') }}" rel="stylesheet" type="text/css"/>
         <link href="{{ URL::to('css/global/global.css') }}" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
 
         <!-- Favicon -->
         {{-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -79,7 +80,7 @@
                             <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider -is-active" href="{{ route('login') }}">Login</a></li>
                             @endif
                             <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="">How It Works</a></li>
-                            <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="">Visit Store</a></li>
+                            <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="/store">Visit Store</a></li>
                             <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider" href="https://crypto2naira.com" target="_blank">About Crypto2Naira</a></li>
                             @if(Auth::check())
                             <li class="s-header__nav-menu-item"><a class="s-header__nav-menu-link s-header__nav-menu-link-divider -is-active" href="{{ route('logout') }}"
@@ -194,6 +195,7 @@
         <script type="text/javascript" src="{{ URL::to('vendor/swiper/swiper.jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ URL::to('vendor/cubeportfolio/js/jquery.cubeportfolio.min.js') }}"></script>
         <script type="text/javascript" src="{{ URL::to('vendor/jquery.wow.min.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
 
         <!-- General Components and Settings -->
         <script type="text/javascript" src="{{ URL::to('js/global.min.js') }}"></script>
@@ -203,6 +205,8 @@
         <script type="text/javascript" src="{{ URL::to('js/components/portfolio-4-col-slider.min.js') }}"></script>
         <script type="text/javascript" src="{{ URL::to('js/components/wow.min.js') }}"></script>
         <!--========== END JAVASCRIPTS ==========-->
+
+        @yield('scripts')
 
     </body>
     <!-- End Body -->

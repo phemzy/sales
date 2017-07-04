@@ -54,16 +54,13 @@
                                 <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2">Please review the following:</p>
                               </div>
                               <div class="modal-body" style="text-align: left;">
-                                   <p class="g-font-size-20--xs g-margin-b-0--xs">1. Before your registration can be completed, you are to pay your registration fee either through direct bank transfer or through online payment with your credit card. You have 24hrs to do this or your registration will expire.</p><br>
-                                   <p class="g-font-size-20--xs g-margin-b-0--xs">2. After complete registration, depending on which plan you choose, you will be provided with your referral link, with which you earn &#8358; 1,000.00 worth coupon for every user that signs up with it.</p><br>
-                                   <p class="g-font-size-20--xs g-margin-b-0--xs">3. Also, you will be provided with a printable payment invoice which serves as your entry tag on the sales day.</p><br>
-                                   <p class="g-font-size-20--xs g-margin-b-0--xs">4. You can then go ahead to the store and preorder your preferred item(s) which you will pick up on the sales day without stress.</p><br>
-                                   <p class="g-font-size-20--xs g-margin-b-0--xs">5. You are not limited to the items you preorder alone. On the sales day, you are free to buy as many as you want. [But you can't buy items that has been preordered by other users. The items you preorder are 100% yours.]</p><br>
-                                   <p class="g-font-size-20--xs g-margin-b-0--xs">6. The only acceptable cryptocurrencies are The Billion Coin (TBC), Greycoin (GRC) and Bitcoin (BTC)</p><br>
+                                    <p class="g-font-size-20--xs g-margin-b-0--xs">1. Over 3,000 items across different categories are up for grabs. Registering now gives you the access to the cryptocurrency trade fair and to preorder the items before then.</p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">2. Before your registration can be completed, you are to pay your registration fee either through direct bank transfer or through online payment with your credit card. You have 24hrs to do this or your registration will expire.</p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">3. The only acceptable cryptocurrencies are The Billion Coin (TBC), Greycoin (GRC) and Bitcoin (BTC)</p><br>
                                    
                               </div>
                               <div class="modal-footer">
-                                <button type="button" class="s-btn s-btn--md btn-primary g-radius--50 g-padding-x-50--xs g-margin-b-20--xs pull-right" data-dismiss="modal">Sign Up</button>
+                                <button type="submit" class="s-btn s-btn--md btn-primary g-radius--50 g-padding-x-50--xs g-margin-b-20--xs pull-right">Sign Up</button>
                               </div>
                             </div>
 
@@ -78,3 +75,13 @@
 
     @endif
 @stop
+{{-- <div class="modal-body" style="text-align: left;">
+                                    <p class="g-font-size-20--xs g-margin-b-0--xs">1. Over 10,000 items across different categories are up for grabs. Registering now gives you the access to the cryptocurrency trade fair and to preorder the items before then.</p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">2. </p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">3. </p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">4. Also, you will be provided with a printable payment invoice which serves as your entry tag on the sales day.</p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">5. </p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">6. </p><br>
+                                   <p class="g-font-size-20--xs g-margin-b-0--xs">7. The only acceptable cryptocurrencies are The Billion Coin (TBC), Greycoin (GRC) and Bitcoin (BTC)</p><br>
+                                   
+                              </div> --}}

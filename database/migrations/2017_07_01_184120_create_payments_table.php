@@ -19,9 +19,11 @@ class CreatePaymentsTable extends Migration
             $table->string('transaction_id');
             $table->string('status');
             $table->string('amount');
-            $table->string('total_credited_to_merchant');
-            $table->string('charges_paid_by_merchant');
+            $table->string('total_credited_to_merchant')->nullable();
+            $table->string('charges_paid_by_merchant')->nullable();
+            $table->string('payment_proof')->nullable();
             $table->string('type');
+            $table->string('method');
             $table->timestamps();
         });
     }
