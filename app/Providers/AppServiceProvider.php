@@ -16,16 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        // \View::share('categories', Category::all());
-        // \View::share('products', Product::all());
+        
+        \View::share('categories', Category::all());
+        \View::share('products', Product::all());
 
-        // if(Auth::check()){
-        //     if(Auth::user()->hasTransactions())
-        //     {
-        //         Auth::user()->updatePlan();
-        //     }
-        // }
         \Cloudinary::config(array( 
           "cloud_name" => "crypto2naira", 
           "api_key" => "328753983467173", 
