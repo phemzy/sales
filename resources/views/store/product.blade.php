@@ -45,7 +45,7 @@
 					<div class="summary entry-summary">
 						<h1 class="product_title entry-title">{{ $product->name }}</h1>
 						<p class="price"><span class="amount">&#8358; {{ $product->paying_amount }}</span></p>
-						<p class="price"><span class="amount"><del>&#8358; {{ $product->naira_price }}</del></span></p>
+						<p class="price"><span class="amount"><del>&#8358; {{ $product->naira_price }}</del> <span class="badge">{{ $product->crypto_price }}%</span> <small>OFF</small></span></p>
 						<h4>Availability : <span>in Stock</span></h4>
 
 						<div class="quantity">
