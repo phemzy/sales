@@ -76,12 +76,12 @@
                     <p>Your payment is awaiting confirmation! Kindly wait some few moments for this.</p>
                 @else
                 <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2">Make Payment To:</p>
-                <h2 class="g-font-size-32--xs g-font-size-36--sm g-margin-b-25--xs">MEGA MINDS LTD</h2>
+                <h2 class="g-font-size-32--xs g-margin-b-25--xs">Michael Bolaji Photography <img src="{{ URL::to('img/logo_m.jpg') }}" alt="" width="100"></h2>
                 <p class="g-font-size-18--sm">
-                    Account Number : <b>0023098765</b>
+                    Account Number : <b>0168228266</b>
                 </p>
                 <p>
-                    Bank : Zenith Bank
+                    Bank : GTBank
                 </p>
                 <p>
                     Amount : &#8358;{{ number_format(Auth::user()->plans->price, 2) }}

@@ -59,7 +59,7 @@
             <div class="col-sm-5 g-hor-centered-row__col">
                 <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-25--xs">About</p>
                 <h2 class="g-font-size-32--xs g-font-size-36--sm g-margin-b-25--xs">July Flash Sales</h2>
-                <p class="g-font-size-18--sm">In partnership with Mega Minds Ltd, Crypto2Naira brings you the best cryptocurrency flash sales yet. Over 3,000 items available for sale, up to 100% cryptocurrency price tag.</p>
+                <p class="g-font-size-18--sm">In partnership with Mega Minds Ltd and Michael Bolaji Photography, Crypto2Naira brings you the best cryptocurrency flash sales yet. Over 3,000 items available for sale, up to 100% cryptocurrency price tag.</p>
                 <p>
                     We're creating values for the cryptocurrency community and we aim high at building an excellent platform of exchange from cryptocurrency to cash.
                 </p>
