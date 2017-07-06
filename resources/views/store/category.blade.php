@@ -41,13 +41,15 @@
 				
 				<!-- Content Area -->
 				<div class="col-md-9 col-sm-9 col-xs-12 content-area">
+					@foreach($pros->chunk(3) as $pro)
 					<ul class="products">
-						@foreach($pros as $p)
+						@foreach($pro as $p)
 							<li class="product">							
 								@include('partials.product_block')
 							</li>
 						@endforeach
 					</ul>
+					@endforeach
 					<nav class="ow-pagination">
 						{{ $pros->links() }}
 					</nav>
