@@ -94,7 +94,8 @@
 								<span class="new-product">New</span>
 								<span class="onsale">15%</span>
 								<span class="product-img">
-									<img src="{{ Storage::url($p->featured_image) }}" width="270" height="360" alt="product"/>
+									<?php echo cl_image_tag($p->featured_image, 
+                        				array( "width" => 270, "height" => 360, "crop" => "fill" )); ?>
 								</span>
 								<h3>{{ $p->name }}</h3>
 								<span class="price"><span class="amount">&#8358; {{ $p->naira_price }}</span></span>
