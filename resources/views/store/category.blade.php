@@ -63,7 +63,7 @@
 								<a href="{{ route('product.show', $p->slug) }}" title="Recent Posts"><?php echo cl_image_tag($p->featured_image, 
                         				array( "width" => 79, "height" => 79, "crop" => "fill" )); ?></a>
 								<h3><a title="Luxury Living Room" href="{{ route('product.show', $p->slug) }}">{{ $p->name }}</a></h3>
-								<p>&#8358;{{ $p->naira_price }}</p>
+								<p>&#8358;{{ $p->paying_amount }}</p>
 							</div>
 							@endforeach
 						</aside><!-- Widget Latest Post /-  -->

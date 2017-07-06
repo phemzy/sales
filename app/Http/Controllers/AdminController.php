@@ -36,7 +36,7 @@ class AdminController extends Controller
     	$p = Product::forceCreate([
     		'name' => request('name'),
     		'slug' => request('slug'),
-    		'description' => request('description'),
+    		'description' => nl2br(request('description')),
     		'category_id' => request('category_id'),
     		'featured_image' => $i['public_id'],
     		'naira_price' => request('naira_price'),
