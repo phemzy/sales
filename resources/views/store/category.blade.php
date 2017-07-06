@@ -37,6 +37,19 @@
 							@endforeach
 						</ul>
 					</aside><!-- Widget Categories /-  -->
+
+						<!-- Widget Latest Post -->
+						<aside class="widget widget-latestposts">
+							<h3 class="widget-title">Latest Products</h3>
+							@foreach($products->take(3) as $p)
+							<div class="latest-content">
+								<a href="{{ route('product.show', $p->slug) }}" title="Recent Posts"><?php echo cl_image_tag($p->featured_image, 
+                        				array( "width" => 79, "height" => 79, "crop" => "fill" )); ?></a>
+								<h3><a title="Luxury Living Room" href="{{ route('product.show', $p->slug) }}">{{ $p->name }}</a></h3>
+								<p>&#8358;{{ $p->paying_amount }}</p>
+							</div>
+							@endforeach
+						</aside><!-- Widget Latest Post /-  -->
 				</div><!-- Widget Area /- -->
 				
 				<!-- Content Area -->
@@ -54,22 +67,6 @@
 						{{ $pros->links() }}
 					</nav>
 				</div><!-- Content Area /- -->
-				</div>
-				<div class="row">
-					<div class="col-sm-3 col-md-3 col-xs-12">
-						<!-- Widget Latest Post -->
-						<aside class="widget widget-latestposts">
-							<h3 class="widget-title">Latest Products</h3>
-							@foreach($products->take(3) as $p)
-							<div class="latest-content">
-								<a href="{{ route('product.show', $p->slug) }}" title="Recent Posts"><?php echo cl_image_tag($p->featured_image, 
-                        				array( "width" => 79, "height" => 79, "crop" => "fill" )); ?></a>
-								<h3><a title="Luxury Living Room" href="{{ route('product.show', $p->slug) }}">{{ $p->name }}</a></h3>
-								<p>&#8358;{{ $p->paying_amount }}</p>
-							</div>
-							@endforeach
-						</aside><!-- Widget Latest Post /-  -->
-					</div>
 				</div>
 			</div><!-- Container /- -->
 			<div class="section-padding"></div>
