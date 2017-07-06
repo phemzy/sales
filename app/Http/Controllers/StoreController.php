@@ -17,7 +17,7 @@ class StoreController extends Controller
     }
     public function index()
     {
-        $latest = Product::latest()->take(6)->get();
+        $latest = Product::latest()->take(8)->get();
         $phone = Category::where('name', 'Phones and Gadgets')->first();
         $fashion = Category::where('name', 'Fashion and Apparel')->first();
         $elec = Category::where('name', 'Electrical and Home Items')->first();
