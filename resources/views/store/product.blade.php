@@ -66,7 +66,7 @@
 						<div class="tab-content">
 							<div role="tabpanel" class="tab-pane active" id="ProductDescription">
 								<p class="product-details-content">
-									{{ $product->description }}
+									{!! $product->description !!}
 								</p>
 							</div>
 						</div>
@@ -92,13 +92,14 @@
 						<li class="product">							
 							<a href="product-detail.html" title="Prouct">
 								<span class="new-product">New</span>
-								<span class="onsale">15%</span>
+								<span class="onsale">{{ $p->crypto_price }}%</span>
 								<span class="product-img">
 									<?php echo cl_image_tag($p->featured_image, 
                         				array( "width" => 270, "height" => 360, "crop" => "fill" )); ?>
 								</span>
 								<h3>{{ $p->name }}</h3>
-								<span class="price"><span class="amount">&#8358; {{ $p->naira_price }}</span></span>
+								<span class="price"><span class="amount">&#8358; {{ $p->paying_amount }}</span></span>
+								<span class="price"><span class="amount"><del> &#8358; {{ $p->naira_price }}</del></span></span>
 							</a>
 							<p class="hover-content">
 								<a title="Add To Cart" href="{{ route('product.show', $p->slug) }}" class="button product_type_simple add_to_cart_button"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Pre-order</a>
