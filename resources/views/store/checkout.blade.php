@@ -120,14 +120,14 @@
 						</div>
 						
 						<div class="col-md-12 col-sm-12 col-xs-12 woocommerce-checkout-payment">
-							<h4>Payment Methods</h4>
+							<h4>Select Cryptocurrency Type</h4>
 							<div class="col-md-12 col-sm-12 col-xs-12 no-padding">
-								<input type="checkbox" />
-								<label>Direct Bank Transfer</label>
-							</div>
-							<div class="col-md-12 col-sm-12 col-xs-12 no-padding">
-								<input type="checkbox" checked="" />
-								<label>Cash on Pickup</label>
+								<select name="crypto_type" id="" class="form-control">
+									<option value="">--SELECT--</option>
+									<option value="TBC">TBC</option>
+									<option value="GRC">GRC</option>
+									<option value="BTC">BTC</option>
+								</select>
 							</div>
 						</div>
 						

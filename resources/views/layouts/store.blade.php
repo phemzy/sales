@@ -224,7 +224,7 @@
         @if(session()->has('error'))
             swal({
                 type: 'error',
-                title: "{{ session('error') }}"
+                title: "{!! session('error') !!}"
             })
         @endif
 	</script>

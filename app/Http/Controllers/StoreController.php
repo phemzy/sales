@@ -93,7 +93,8 @@ class StoreController extends Controller
         $this->validate(request(), [
             'first_name' => 'required',
             'last_name' => 'required',
-            'product' => 'required'
+            'product' => 'required',
+            'crypto_type' => 'required'
         ]);
 
         if(request()->user()->order_count == 0){
@@ -111,6 +112,7 @@ class StoreController extends Controller
         $order->status = 'pending';
         $order->product_id = $product->id;
         $order->total = $product->paying_amount;
+        $order->crypto_type = request('crypto_type');
         $order->save();
 
         $product->quantity = $product->quantity -1;
@@ -121,7 +123,7 @@ class StoreController extends Controller
 
         \Mail::to(Auth::user())->send(new \App\Mail\OrderReceived($order));
 
-        session()->flash('success', 'Order Received! <br /> Check your dashboard for details.');
+        session()->flash('success', 'Order Received! Check your dashboard for details.');
 
         return redirect()->route('store.index');
     }

@@ -85,7 +85,7 @@
 					<h3>Related Products</h3>
 				</div><!-- Section Header /- -->
 				<ul class="products">
-					@foreach($product->category->products->take(4) as $p)
+					@foreach($product->category->products->take(5) as $p)
 						@if($p->id == $product->id)
 
 						@else
