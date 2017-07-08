@@ -187,7 +187,7 @@
                         @else
                             <div class="col-md-6 col-md-offset-3">
                                 <input type="radio" class="form-control" name="plan" id="" value="{{ $p->id }}">
-                                <label for="" class="text-uppercase">{{ $p->name }}</label>
+                                <label for="" class="text-uppercase">{{ $p->name }} (&#8358; {{ $p->price }})</label>
                             </div>                        
                         @endif
                     @endforeach

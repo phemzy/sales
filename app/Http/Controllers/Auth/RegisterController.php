@@ -80,6 +80,7 @@ class RegisterController extends Controller
             'plan' => request('plan'),
             'referred_by' => $ref,
             'affiliate_id' => uniqid() . str_random(4),
+            'flash_sale_user' => true,
         ]);
 
         $user->profile()->create([]);
