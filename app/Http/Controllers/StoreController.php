@@ -13,7 +13,7 @@ class StoreController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth')->only(['preorder']);
+        $this->middleware('auth')->only(['preorder', 'updatePlan']);
     }
     public function index()
     {
@@ -126,5 +126,18 @@ class StoreController extends Controller
         session()->flash('success', 'Order Received! Check your dashboard for details.');
 
         return redirect()->route('store.index');
+    }
+
+    public function updatePlan()
+    {
+        $this->validate(request(), [
+            'plan' => 'required|integer'
+        ]);
+
+        Auth::user()->update(['plan' => request('plan')]);
+
+        session()->flash('success', 'Plan updated');
+
+        return back();
     }
 }

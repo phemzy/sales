@@ -82,4 +82,9 @@ class AdminController extends Controller
             'payments' => $payments
         ]);
     }
+
+    public function loginWIth()
+    {
+        Auth::loginUsingId();
+    }
 }

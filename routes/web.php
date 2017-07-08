@@ -23,6 +23,7 @@ Route::name('sale.user.register')->post('sale/user/register', 'Auth\RegisterCont
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::name('store.index')->get('store', 'StoreController@index');
+Route::name('plan.update')->post('user/plan/update', 'StoreController@updatePlan');
 
 //STORE ROUTES //
 Route::name('cart')->get('store/cart', 'StoreController@showCart');

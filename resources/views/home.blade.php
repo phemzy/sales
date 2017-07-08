@@ -56,6 +56,17 @@
                             </span>
                         </a>
                     </span>
+                    <span class="g-display-block--xs g-display-inline-block--lg g-margin-b-10--xs g-margin-b-10--lg">
+                        <a href="" data-toggle="modal" data-target="#updatePlan" class="s-btn s-btn--xs s-btn--white-brd g-padding-x-30--xs g-radius--50">
+                            <span class="s-btn__element--left">
+                                <i class="g-font-size-32--xs ti-mobile"></i>
+                            </span>
+                            <span class="s-btn__element--right g-padding-x-10--xs">
+                                <span class="g-display-block--xs g-font-size-11--xs">Or you can</span>
+                                <span class="g-font-size-16--xs">Update Your Plan</span>
+                            </span>
+                        </a>                        
+                    </span>
                     @endif
                 </div>
             </div>
@@ -147,6 +158,46 @@
                 <input type='hidden' name='total' value='{{ Auth::user()->plans->price }}' />
                  <button class="s-btn s-btn--xs btn-lg btn-primary g-padding-x-30--xs g-radius--50">Click here to proceed</button>
                 </form>
+               
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="updatePlan" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2">PLAN: {{ Auth::user()->plans->name }}</p>
+          </div>
+          <div class="modal-body text-center">
+                <div class="col-md-12">
+                    <form method='POST' action='{{ route('plan.update') }}'>
+                    {{ csrf_field() }}
+
+                    @foreach(App\Plan::all() as $p)
+                        @if(Auth::user()->plans->id == $p->id)
+
+                        @else
+                            <div class="col-md-6 col-md-offset-3">
+                                <input type="radio" class="form-control" name="plan" id="" value="{{ $p->id }}">
+                                <label for="" class="text-uppercase">{{ $p->name }}</label>
+                            </div>                        
+                        @endif
+                    @endforeach
+
+                    <div class="col-md-6 col-md-offset-3" style="margin-bottom: 10px; margin-top: 30px;">
+                        <button type="submit" class="s-btn s-btn--xs btn-lg btn-primary g-padding-x-30--xs g-radius--50">Update</button>
+                    </div>
+                     
+                    </form>
+                </div>
                
           </div>
           <div class="modal-footer">
