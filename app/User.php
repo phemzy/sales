@@ -36,6 +36,11 @@ class User extends Authenticatable
         $this->save();
     }
 
+    public function vouchers()
+    {
+        return $this->hasMany(Voucher::class);
+    }
+
     public function payments()
     {
         return $this->hasMany(Payment::class);
@@ -50,7 +55,7 @@ class User extends Authenticatable
     {
         $p = $this->payments()->where('status', 'successful')->where('type', 'Sales Registration Fee')->first();
 
-        return $p ? : false;
+        return $p ? true : false;
     }
 
     public function hasCompletedProfile()

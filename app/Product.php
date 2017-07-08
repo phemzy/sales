@@ -16,4 +16,9 @@ class Product extends Model
     {
     	return $this->belongsTo(Category::class);
     }
+
+    public function outOfStock()
+    {
+    	return (bool) $this->quantity == 0;
+    }
 }

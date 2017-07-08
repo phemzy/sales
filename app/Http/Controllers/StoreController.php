@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Notifications\NewVoucher;
+use App\Voucher;
 use App\Category;
 use App\Product;
 use App\Order;
@@ -49,7 +52,7 @@ class StoreController extends Controller
     {
         $product = Product::where('slug', $slug)->first();
 
-        if(!$product)
+        if(!$product || $product->outOfStock())
             return back();
 
     	return view('store.checkout')->withProduct($product);
@@ -103,7 +106,8 @@ class StoreController extends Controller
 
         $product = Product::where('slug', request('product'))->first();
 
-        if(!$product)
+        if(!$product || $product->outOfStock())
+            session()->falsh('error' , 'Out of Stock');
             return back();
 
         $order = new Order;
@@ -137,6 +141,29 @@ class StoreController extends Controller
         Auth::user()->update(['plan' => request('plan')]);
 
         session()->flash('success', 'Plan updated');
+
+        return back();
+    }
+
+    public function claimVoucher(User $user)
+    {
+        $v = Voucher::where('user_id', Auth::id())->where('recipient_id', $user->id)->first();
+        if($v){
+            session()->flash('error', 'Voucher already claimed');
+            return back();
+        }
+
+        $voucher = Voucher::forceCreate([
+            'name' => 'FLASH-' . str_random(8) . rand(12, 100), 
+            'amount' => 1000,
+            'recipient_id' => $user->id,
+            'user_id' => Auth::id(),
+            'claimed' => true,
+        ]);
+
+        Auth::user()->notify(new NewVoucher($voucher));
+
+        session()->flash('success', 'Voucher sent to your mail.');
 
         return back();
     }

@@ -326,7 +326,11 @@
                                     <tr>
                                         <td>{{ $user->fullname() }}</td>
                                         <td>{{ $user->hasPaid() ? 'Paid' : 'Not Paid'}}</td>
-                                        <td>{{ $user->hasPaid() ? 'Qualified' : 'Not qualified yet.' }}</td>
+                                        @if(Auth::user()->vouchers()->where('recipient_id', $user->id)->where('claimed', true)->first())
+                                        <td>Voucher claimed</td>
+                                        @else
+                                        <td>{!! $user->hasPaid() ? 'Qualified | <a href="' . route("voucher.claim", $user->id) . '"> Claim Voucher </a>' : 'Not qualified yet.' !!}</td>
+                                        @endif
                                     </tr>
                                 @endforeach
                             @else

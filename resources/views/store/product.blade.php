@@ -46,13 +46,13 @@
 						<h1 class="product_title entry-title">{{ $product->name }}</h1>
 						<p class="price"><span class="amount">&#8358; {{ $product->paying_amount }}</span></p>
 						<p class="price"><span class="amount"><del>&#8358; {{ $product->naira_price }}</del> <span class="badge">{{ $product->crypto_price }}% OFF</span></span></p>
-						<h4>Availability : <span>in Stock</span></h4>
+						<h4>Availability : <span>{!! $product->outOfStock() ? '<span style=color:red >Out of Stock' : 'in Stock' !!}</span></h4>
 
 						<div class="quantity">
 							Quantity: {{ $product->quantity }}
 						</div>
 						
-							<a href="{{ route('checkout', $product->slug) }}"><button type="submit" class="single_add_to_cart_button button alt" title="Add to Cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Pre-Order</button></a>
+							<a href="{{ route('checkout', $product->slug) }}"><button type="submit" class="single_add_to_cart_button button alt" title="Add to Cart" {{ $product->outOfStock() ? 'disabled' : '' }}><i class="fa fa-shopping-cart" aria-hidden="true"></i>{{ $product->outOfStock() ? 'Out Of Stock' : 'Pre-Order' }}</button></a>
 					</div>
 				</div>
 				
