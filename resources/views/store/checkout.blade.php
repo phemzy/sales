@@ -78,7 +78,7 @@
 											<h4>Color<span>: Yellow</span></h4> --}}
 										</td>
 										<td data-title="Price" class="product-price">
-											<span class="amount">&#8358;{{ $product->naira_price }}</span>
+											<span class="amount">&#8358;{{ $product->paying_amount}}</span>
 										</td>
 										<td data-title="Quantity" class="product-quantity">
 											<div class="quantity">
@@ -86,7 +86,7 @@
 											</div>
 										</td>
 										<td data-title="Total" class="product-subtotal">
-											<span class="amount">&#8358;{{ $product->naira_price }}</span>
+											<span class="amount">&#8358;{{ $product->paying_amount }}</span>
 										</td>
 										<td class="product-remove">
 											<a title="Remove this item" class="remove" href="{{ route('store.index') }}"><img src="{{ URL::to('commerce/images/close.png') }}" alt="close" /></a>
