@@ -134,7 +134,7 @@
 						@if(!Auth::check())
 
 						<div class="place-order col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 50px; margin-top: 30px;">
-							<button type="submit" class="button product_type_simple add_to_cart_button">
+							<button type="button" class="button product_type_simple add_to_cart_button" data-toggle="modal" data-target="#login-first">
 									Pre-order
 							</button>
 						</div>
@@ -215,6 +215,27 @@
 		  </div>
 		</div>
 		@endif
+		<div id="login-first" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        <h4 class="modal-title">Oops!</h4>
+		      </div>
+		      <div class="modal-body">
+		        	<p>You are not logged in. You can't preorder.</p>
+
+		        	<p>You need to login before you can preorder. Click here to <a href="{{ route('login') }}">LOGIN</a>. Or <a href="{{ route('register') }}">REGISTER</a> here.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+
+		  </div>
+		</div>
 	</main>
 
 @stop
