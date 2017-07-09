@@ -772,8 +772,7 @@ module.exports = Cancel;
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(9);
-module.exports = __webpack_require__(39);
+module.exports = __webpack_require__(9);
 
 
 /***/ }),
@@ -797,7 +796,7 @@ window.Vue = __webpack_require__(35);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('cart', __webpack_require__(36));
+Vue.component('coupon', __webpack_require__(36));
 
 var app = new Vue({
   el: '#app'
@@ -41404,9 +41403,9 @@ var Component = __webpack_require__(37)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "C:\\projects\\sales\\resources\\assets\\js\\components\\Cart.vue"
+Component.options.__file = "C:\\projects\\sales\\resources\\assets\\js\\components\\Coupon.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Cart.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] Coupon.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -41415,9 +41414,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1759f254", Component.options)
+    hotAPI.createRecord("data-v-d26cb54c", Component.options)
   } else {
-    hotAPI.reload("data-v-1759f254", Component.options)
+    hotAPI.reload("data-v-d26cb54c", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -41532,15 +41531,9 @@ module.exports={render:function(){},staticRenderFns:[]}
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-1759f254", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-d26cb54c", module.exports)
   }
 }
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

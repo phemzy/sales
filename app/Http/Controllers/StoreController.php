@@ -106,9 +106,11 @@ class StoreController extends Controller
 
         $product = Product::where('slug', request('product'))->first();
 
-        if(!$product || $product->outOfStock())
-            session()->falsh('error' , 'Out of Stock');
+        if(!$product || $product->outOfStock()){
+            session()->flash('error' , 'Out of Stock');
             return back();
+        }
+            
 
         $order = new Order;
         $order->order_number = 'sale-' . str_random(12) . '-july';

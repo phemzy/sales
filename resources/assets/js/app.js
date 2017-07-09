@@ -15,7 +15,7 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('cart', require('./components/Cart.vue'));
+Vue.component('coupon', require('./components/Coupon.vue'));
 
 const app = new Vue({
     el: '#app'

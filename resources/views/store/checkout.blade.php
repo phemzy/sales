@@ -118,8 +118,11 @@
 								</div>							
 							</div>
 						</div>
+
+						<coupon></coupon>
+	
 						
-						<div class="col-md-12 col-sm-12 col-xs-12 woocommerce-checkout-payment">
+						<div class="col-md-6 col-sm-6 col-xs-12 woocommerce-checkout-payment">
 							<h4>Select Cryptocurrency Type</h4>
 							<div class="col-md-12 col-sm-12 col-xs-12 no-padding">
 								<select name="crypto_type" id="" class="form-control">
@@ -133,7 +136,7 @@
 						
 						@if(!Auth::check())
 
-						<div class="place-order col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 50px; margin-top: 30px;">
+						<div class="place-order col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 80px; margin-top: 80px;">
 							<button type="button" class="button product_type_simple add_to_cart_button" data-toggle="modal" data-target="#login-first">
 									Pre-order
 							</button>
@@ -141,7 +144,7 @@
 						@else
 
 
-						<div class="place-order col-md-12 col-sm-12 col-xs-12">
+						<div class="place-order col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 80px; margin-top: 80px;">
 							@if(Auth::user()->hasPaid())
 								<button type="button" class="button product_type_simple add_to_cart_button" data-toggle="modal" data-target="#confirm">
 									Pre-order
