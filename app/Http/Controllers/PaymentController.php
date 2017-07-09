@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\plan;
+use App\Plan;
 use Auth;
 use App\Payment;
 use Illuminate\Http\Request;
