@@ -35,6 +35,10 @@ Route::name('add-to-cart')->get('cart/add/{slug}', 'StoreController@addToCart');
 Route::name('preorder')->post('store/preorder', 'StoreController@preorder');
 Route::name('free')->get('store/cryptocurrency-only', 'StoreController@allFree');
 Route::name('proof.upload')->post('payment/upload-proof', 'PaymentController@proofUpload');
+Route::name('coupon.check')->get('coupon/check/{coupon}', 'StoreController@checkCoupon');
+Route::get('order/gettotal', function(){
+	return session('order_total');
+});
 
 ####ADMIN ROUTES #####
 Route::name('admin.index')->get('july/flash.sales/admin/index/show', 'AdminController@index');

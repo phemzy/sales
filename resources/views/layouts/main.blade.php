@@ -205,6 +205,21 @@
         <script type="text/javascript" src="{{ URL::to('js/components/wow.min.js') }}"></script>
         <!--========== END JAVASCRIPTS ==========-->
 
+        <script type="text/javascript">
+        @if(session()->has('success'))
+            swal({
+                type: 'success',
+                title: "{!! session('success') !!}"
+            })
+        @endif
+        @if(session()->has('error'))
+            swal({
+                type: 'error',
+                title: "{!! session('error') !!}"
+            })
+        @endif
+    </script>
+
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

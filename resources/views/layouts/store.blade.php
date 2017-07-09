@@ -9,6 +9,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta name="description" content="">
     <meta name="author" content="">
@@ -231,6 +232,7 @@
 	
 	<!-- Library - Theme JS -->
 	<script src="{{ URL::to('commerce/js/functions.js') }}"></script>
+	<script src="{{ URL::to('js/app.js') }}"></script>
 
 	@yield('scripts')
 

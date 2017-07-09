@@ -73,6 +73,8 @@ class StoreController extends Controller
             return back();
         }
 
+        session(['order_total' => $product->paying_amount]);
+
     	return view('store.product', [
             'product' => $product
         ]);
@@ -117,7 +119,7 @@ class StoreController extends Controller
         $order->user_id = Auth::id();
         $order->status = 'pending';
         $order->product_id = $product->id;
-        $order->total = $product->paying_amount;
+        $order->total = session('order_total');
         $order->crypto_type = request('crypto_type');
         $order->save();
 
@@ -160,7 +162,8 @@ class StoreController extends Controller
             'amount' => 1000,
             'recipient_id' => $user->id,
             'user_id' => Auth::id(),
-            'claimed' => true,
+            'claimed' => false,
+            'active' => true
         ]);
 
         Auth::user()->notify(new NewVoucher($voucher));
@@ -168,5 +171,48 @@ class StoreController extends Controller
         session()->flash('success', 'Voucher sent to your mail.');
 
         return back();
+    }
+
+    public function checkCoupon($coupon)
+    {
+        $c = Voucher::where('name', $coupon)->first();
+
+        if(!$c){
+            
+            return response()->json(['message' => 'This voucher does not exist!', 'order_total' => session('order_total')]);
+        }
+
+        elseif($c->isActive() && $c->isNotClaimed()){
+            $total = session('order_total');
+
+            if($total > $c->amount){
+                $total -= $c->amount;
+
+                $c->claimed = true;
+                $c->active = false;
+
+            }elseif($c->amount > $total){
+                $c->amount -= $total;
+                
+                $total = 0;
+
+            }elseif($total == $c->amount){
+                $total -= $c->amount;
+            }
+
+            $c->save();
+
+            session(['order_total' => $total]);
+
+            
+            
+            return response()->json(['message' => 'Voucher applied! Total is now: ' . session('order_total'), 'order_total' => session('order_total')]);
+
+        }
+
+        elseif($c->isClaimed()){
+
+            return response()->json(['message' => 'Voucher already used.', 'order_total' => session('order_total')]);
+        }
     }
 }

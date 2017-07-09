@@ -2,7 +2,7 @@
 
 @section('content')
 		
-	<main class="site-main page-spacing">
+	<main class="site-main page-spacing" id="app">
 		<!-- Page Banner -->
 		<div class="page-banner checkout-banner container-fluid no-padding">
 			<div class="page-banner-content">
@@ -97,27 +97,6 @@
 							</table>
 						</div>
 						
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<div class="cart_totals">
-								<h4>Shiping</h4>
-								<div class="cart_totals_table">
-									<table>
-										<tbody>
-											<tr class="shipping">
-												<th colspan="2">
-													<div class="form-group"><input type="checkbox" checked=""><label>Free Shipping</label></div>
-													<div class="form-group"><input type="checkbox" checked=""><label>Pickup (Free)</label></div>
-												</th>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-								<div class="totals">
-									<h3>Total</h3>
-									<h4>&#8358;0</h4>
-								</div>							
-							</div>
-						</div>
 
 						<coupon></coupon>
 	

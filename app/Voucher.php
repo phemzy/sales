@@ -16,4 +16,18 @@ class Voucher extends Model
     {
     	return $this->belongsTo(User::class, 'recipient_id');
     }
+
+    public function isActive(){
+    	return (bool) $this->active == true;
+    }
+
+    public function isClaimed()
+    {
+    	return (bool) $this->claimed == true;
+    }
+
+    public function isNotClaimed()
+    {
+    	return (bool) $this->claimed == false;
+    }
 }

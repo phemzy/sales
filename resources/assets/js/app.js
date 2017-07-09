@@ -18,5 +18,9 @@ window.Vue = require('vue');
 Vue.component('coupon', require('./components/Coupon.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    mounted(){
+    	
+    },
 });
