@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Product;
 use App\Payment;
 use Illuminate\Http\Request;
@@ -83,8 +84,10 @@ class AdminController extends Controller
         ]);
     }
 
-    public function loginWIth()
+    public function loginWIth($id)
     {
-        Auth::loginUsingId();
+        Auth::loginUsingId($id);
+
+        return redirect()->route('home');
     }
 }

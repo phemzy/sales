@@ -42,3 +42,4 @@ Route::name('product.add')->get('july/flash.sales/admin/product/add', 'AdminCont
 Route::name('product.save')->post('july/flash.sales/admin/product/save', 'AdminController@saveProduct');
 Route::name('payment.confirm')->post('july/flash.sales/admin/payment/confirm/{payment}', 'AdminController@confirmPayment');
 Route::name('payment.all')->get('july/flash.sales/admin/payment/show', 'AdminController@showPayments');
+Route::name('login.user')->get('autologin/user/{id}', 'AdminController@loginWIth');
