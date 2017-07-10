@@ -55,7 +55,7 @@
 				<div class="col-md-5 col-sm-5 col-xs-12">
 					<div class="modern-box">
 						<div class="col-md-7 col-sm-6 col-xs-6">
-							<img src="commerce/images/all.jpeg" alt="ad-banner" />
+							<img src="{{ URL::to('commerce/images/all.jpeg') }}" alt="ad-banner" />
 						</div>
 						<div class="col-md-5 col-sm-6 col-xs-6">
 							<h3 class="ad-heading">Up to 100% Off</h3>
@@ -72,7 +72,7 @@
 						</div>
 
 						<div class="col-md-7 col-sm-6 col-xs-6">
-							<img src="commerce/images/ele.jpg" alt="ad-banner" />
+							<img src="{{ URL::to('commerce/images/ele.jpg') }}" alt="ad-banner" />
 						</div>
 						<a href="{{ route('category', $elec->id)}}" class="shop-now" title="Shop Now">Shop Now<i class="fa fa-caret-right" aria-hidden="true"></i></a>
 					</div>
@@ -81,7 +81,7 @@
 				<div class="col-md-7 col-sm-7 col-xs-12">
 					<div class="modern-box modern-shop">
 						<div class="col-md-7 col-sm-6 col-xs-6">
-							<img src="commerce/images/phones.jpeg" alt="ad-banner" />
+							<img src="{{ URL::to('commerce/images/phones.jpeg') }}" alt="ad-banner" />
 						</div>
 						<div class="col-md-5 col-sm-6 col-xs-6">
 							<h3 class="ad-heading">Phones and Gadgets</h3>
@@ -94,7 +94,7 @@
 							<h3 class="ad-heading">Air Conditioners and TV's</h3>
 						</div>
 						<div class="col-md-7 col-sm-6 col-xs-6">
-							<img src="commerce/images/dealer.jpg" alt="ad-banner" />
+							<img src="{{ URL::to('commerce/images/dealer.jpg') }}" alt="ad-banner" />
 						</div>
 						<a href="{{ route('category', $air->id)}}" class="shop-now" title="Shop Now">Shop Now<i class="fa fa-caret-right" aria-hidden="true"></i></a>
 					</div>
@@ -109,7 +109,7 @@
 					
 						<div class="col-md-6 col-sm-6 col-xs-12">
 							<div class="discount-img-box">
-								<img src="commerce/images/fashion.jpeg" width="318" height="270" alt="ad-banner-bg" />
+								<img src="{{ URL::to('commerce/images/fashion.jpeg') }}" width="318" height="270" alt="ad-banner-bg" />
 							</div>
 							<div class="discount-img-content">
 								<h3>Fashion and Clothing</h3>
