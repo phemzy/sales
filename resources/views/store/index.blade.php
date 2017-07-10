@@ -20,7 +20,7 @@
 							<div class="col-md-12">
 								<a href="{{ route('category', $phone->id)}}" data-animation="animated fadeInUp" title="Shop Now" class="shop-now">Shop Now</a>
 							</div>
-							<img data-animation="animated fadeInDown" src="commerce/images/ph.jpeg" alt="slider" width="1056" height="345" />
+							<img data-animation="animated fadeInDown" src="{{ URL::to('commerce/images/ph.jpeg') }}" alt="slider" width="1056" height="345" />
 						</div>
 					</div>
 					<div class="item slide-1">
@@ -30,7 +30,7 @@
 							<div class="col-md-12">
 								<a href="{{ route('category', $fashion->id)}}" data-animation="animated fadeInUp" title="Shop Now" class="shop-now">Shop Now</a>
 							</div>
-							<img data-animation="animated fadeInDown" src="commerce/images/ap.jpeg" alt="slider" width="722" height="343" />
+							<img data-animation="animated fadeInDown" src="{{  URL::to('commerce/images/ap.jpeg')}}" alt="slider" width="722" height="343" />
 						</div>
 					</div>
 					<div class="item slide-2">
@@ -40,7 +40,7 @@
 							<div class="col-md-12">
 								<a href="{{ route('free')}}" data-animation="animated fadeInUp" title="Shop Now" class="shop-now">Shop Now</a>
 							</div>
-							<img data-animation="animated fadeInDown" src="commerce/images/p.jpg" alt="slider" width="900" height="342" />
+							<img data-animation="animated fadeInDown" src="{{  URL::to('commerce/images/p.jpg')}}" alt="slider" width="900" height="342" />
 						</div>
 					</div>
 				</div>
