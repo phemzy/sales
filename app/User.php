@@ -36,6 +36,11 @@ class User extends Authenticatable
         $this->save();
     }
 
+    public function isFlashSaleUser()
+    {
+        return $this->flash_sale_user == true;
+    }
+
     public function vouchers()
     {
         return $this->hasMany(Voucher::class);

@@ -18,7 +18,7 @@ class PlanUpdater
     {
         if(Auth::check())
         {
-            if(Auth::user()->hasTransactions() && !Auth::user()->plans)
+            if(!Auth::user()->isFlashSaleUser() && !Auth::user()->plans)
             {
                 Auth::user()->updatePlan();
             }
