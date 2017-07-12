@@ -160,7 +160,7 @@ class AdminController extends Controller
 
         \Notification::send($users, new NewEmail(request()->all()));
 
-        session()->flash('success', 'Mail Sent');
+        session()->flash('success', 'Mail Sent To All');
 
         return back();
     }
