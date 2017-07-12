@@ -43,9 +43,9 @@ class NewEmail extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject($this->request['subject']);
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
+                    ->from($this->request['email'], $this->request['name'])
+                    ->subject($this->request['subject'])
+                    ->line(nl2br($this->request['message']))
                     ->line('Thank you for using our application!');
     }
 

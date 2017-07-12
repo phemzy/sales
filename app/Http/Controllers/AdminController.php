@@ -95,16 +95,46 @@ class AdminController extends Controller
 
     public function flashSaleUsers()
     {
-        $users = User::where('flash_sale_user', true)->paginate(100);
+        $users = User::where('flash_sale_user', true);
+
+        session(['users' => $users->get(), 'type' => 'Registered Flash Sale Users']);
+
         
         return view('admin.users', [
-            'users' => $users,
+            'users' => $users->paginate(100),
+            'no' => 1
+        ]);
+    }
+
+    public function c2nFlashSaleUsers()
+    {
+        $users = User::where('flash_sale_user', false)->where('plan', !null);
+
+        session(['users' => $users->get(), 'type' => 'C2N Users For Flash Sales']);
+
+        
+        return view('admin.users', [
+            'users' => $users->paginate(100),
+            'no' => 1
+        ]);
+    }
+
+    public function c2nNotFlashSaleUsers()
+    {
+        $users = User::where('flash_sale_user', false)->where('plan', null);
+
+        session(['users' => $users->get(), 'type' => 'C2N Users Not For Flash Sales']);
+
+        
+        return view('admin.users', [
+            'users' => $users->paginate(100),
             'no' => 1
         ]);
     }
 
     public function sendMailToUser(User $user)
     {
+
         return view('admin.singlemail', [
             'user' => $user,
         ]);
@@ -112,22 +142,25 @@ class AdminController extends Controller
 
     public function postMailToUser(User $user)
     {
-        dd($user);
+        $user->notify(new NewEmail(request()->all()));
+
+        session()->flash('success', 'Mail Sent');
+
+        return back();
     }
 
     public function sendMailToAll()
     {
-        $users = User::where('flash_sale_user', true)->get();
         return view('admin.mailall');
     }
 
     public function postMailToAll()
     {
-        $users = User::where('flash_sale_user', true)->get();
+        $users = session('users');
 
-        \Notification::send($users, new NewEmail);
+        \Notification::send($users, new NewEmail(request()->all()));
 
-        session()->flash('suucess', 'Mail Sent');
+        session()->flash('success', 'Mail Sent');
 
         return back();
     }

@@ -8,8 +8,17 @@
 				<div class="col-md-12">
 					<form action="{{ route('user.mail.send', $user->id) }}" method="post">
 						{{ csrf_field() }}
-
-						<input type="hidden" name="user" value="{{ $user->id }}">
+						
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="email" class="form-control" placeholder="" value="support@crypto2naira.com" required="">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="name" class="form-control" value="Support Team">
+							</div>
+						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<input type="text" name="to" class="form-control" value="{{ $user->fullname() }}" disabled=""  placeholder="Email Subject">

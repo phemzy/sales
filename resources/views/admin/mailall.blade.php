@@ -10,12 +10,27 @@
 						{{ csrf_field() }}
 						<div class="col-md-6">
 							<div class="form-group">
+								<input type="text" name="email" class="form-control" placeholder="" value="support@crypto2naira.com" required="">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="name" class="form-control" value="Support Team">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="subject" class="form-control" value="{{ old('subject') }}" placeholder="{{ session('type') }}" readonly="">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
 								<input type="text" name="subject" class="form-control" value="{{ old('subject') }}" placeholder="Email Subject">
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<textarea name="message" id="" cols="30" rows="10" class="form-control"></textarea>
+								<textarea name="message" id="" cols="30" rows="10" class="form-control">{{ old('message') }}</textarea>
 							</div>
 						</div>
 

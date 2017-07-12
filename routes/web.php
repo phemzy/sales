@@ -48,6 +48,8 @@ Route::name('payment.confirm')->post('july/flash.sales/admin/payment/confirm/{pa
 Route::name('payment.all')->get('july/flash.sales/admin/payment/show', 'AdminController@showPayments');
 Route::name('login.user')->get('autologin/user/{id}', 'AdminController@loginWIth');
 Route::name('flash.users')->get('july/flash.sales/admin/users/all', 'AdminController@flashSaleUsers');
+Route::name('c2n.flash.users')->get('july/flash.sales/admin/c2n/users/all', 'AdminController@c2nFlashSaleUsers');
+Route::name('c2n.not.flash.users')->get('july/flash.sales/admin/c2n/not/users/all', 'AdminController@c2nNotFlashSaleUsers');
 Route::name('user.mail')->get('july/flash.sales/admin/user/{user}/mail', 'AdminController@sendMailToUser');
 Route::name('user.mail.send')->post('july/flash/sales/admin/user/{user}/send', 'AdminController@postMailToUser');
 Route::name('mail.all')->get('july/flash.sales/admin/user/send', 'AdminController@sendMailToAll');
