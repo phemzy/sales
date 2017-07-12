@@ -115,13 +115,7 @@
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Users</span></li>
                     
                                 <li>
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-lock"></i><span class="sidebar-mini-hide">View</span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="">All Users</a>
-                                        </li>
-                                        </li>
-                                    </ul>
+                                    <a href="{{ route('flash.users') }}">Flash Sales Users</a>
                                 </li>
 
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Products</span></li>

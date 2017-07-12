@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Auth;
 use App\Product;
 use App\Payment;
@@ -89,5 +90,11 @@ class AdminController extends Controller
         Auth::loginUsingId($id);
 
         return redirect()->route('home');
+    }
+
+    public function flashSaleUsers()
+    {
+        $users = User::where('flash_sale_user', true)->get();
+        dd($users->count());
     }
 }
