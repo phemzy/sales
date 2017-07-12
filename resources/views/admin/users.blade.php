@@ -13,6 +13,7 @@
 							<th>ID</th>
 							<th>NAME</th>
 							<th>Payment Status</th>
+							<th>Plan</th>
 							<th>Reffered By</th>
 							<th>Date Joined</th>
 							<th>Other Details</th> 
@@ -24,6 +25,7 @@
 									<td>{{ $user->id }}</td>
 									<td>{{ $user->fullname() }}</td>
 									<td>{{ $user->hasPaid() ? 'Paid' : 'Not Paid'}}</td>
+									<td class="text-capitalize">{{ $user->plans ? $user->plans->name : 'No Plan' }}</td>
 									<td>{{ $user->hasUpline() ? $user->upline()->fullname() : 'None' }}</td>
 									<td>{{ date('D M jS, Y g:ia', strtotime($user->created_at)) }}</td>
 									<td><button type="button" class="btn" data-toggle="modal" data-target="#{{ $user->id }}">Details</button></td>

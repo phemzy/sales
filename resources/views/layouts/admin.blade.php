@@ -118,6 +118,14 @@
                                     <a href="{{ route('flash.users') }}">Flash Sales Users</a>
                                 </li>
 
+                                <li>
+                                    <a href="{{ route('c2n.flash.users') }}">C2N Users For Flash Sales</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('c2n.not.flash.users') }}">C2N Users Not For Flash Sales</a>
+                                </li>
+
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Products</span></li>
                     
                                 <li>
