@@ -95,6 +95,9 @@ class AdminController extends Controller
     public function flashSaleUsers()
     {
         $users = User::where('flash_sale_user', true)->get();
-        dd($users->count());
+        
+        return view('admin.users', [
+            'users' => $users
+        ]);
     }
 }

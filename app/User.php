@@ -30,6 +30,18 @@ class User extends Authenticatable
 
     protected $events = ['created' => UserCreated::class];
 
+    public function hasUpline()
+    {
+        return $this->referred_by != null;
+    }
+
+    public function upline()
+    {
+        $u = User::where('affiliate_id', $this->referred_by)->first();
+
+        return $u;
+    }
+
     public function updatePlan()
     {
         $this->plan = 1;
