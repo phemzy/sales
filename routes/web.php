@@ -47,4 +47,8 @@ Route::name('product.save')->post('july/flash.sales/admin/product/save', 'AdminC
 Route::name('payment.confirm')->post('july/flash.sales/admin/payment/confirm/{payment}', 'AdminController@confirmPayment');
 Route::name('payment.all')->get('july/flash.sales/admin/payment/show', 'AdminController@showPayments');
 Route::name('login.user')->get('autologin/user/{id}', 'AdminController@loginWIth');
-Route::name('flash.users')->get('july.flash.sales/admin/users/all', 'AdminController@flashSaleUsers');
+Route::name('flash.users')->get('july/flash.sales/admin/users/all', 'AdminController@flashSaleUsers');
+Route::name('user.mail')->get('july/flash.sales/admin/user/{user}/mail', 'AdminController@sendMailToUser');
+Route::name('user.mail.send')->post('july/flash/sales/admin/user/{user}/send', 'AdminController@postMailToUser');
+Route::name('mail.all')->get('july/flash.sales/admin/user/send', 'AdminController@sendMailToAll');
+Route::name('mail.all.send')->post('july/flash.sales/admin/user/send', 'AdminController@postMailToAll');

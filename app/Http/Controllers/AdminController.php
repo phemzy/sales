@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Auth;
+use App\Notifications\NewEmail;
 use App\Product;
 use App\Payment;
 use Illuminate\Http\Request;
@@ -94,10 +95,40 @@ class AdminController extends Controller
 
     public function flashSaleUsers()
     {
-        $users = User::where('flash_sale_user', true)->get();
+        $users = User::where('flash_sale_user', true)->paginate(100);
         
         return view('admin.users', [
-            'users' => $users
+            'users' => $users,
+            'no' => 1
         ]);
+    }
+
+    public function sendMailToUser(User $user)
+    {
+        return view('admin.singlemail', [
+            'user' => $user,
+        ]);
+    }
+
+    public function postMailToUser(User $user)
+    {
+        dd($user);
+    }
+
+    public function sendMailToAll()
+    {
+        $users = User::where('flash_sale_user', true)->get();
+        return view('admin.mailall');
+    }
+
+    public function postMailToAll()
+    {
+        $users = User::where('flash_sale_user', true)->get();
+
+        \Notification::send($users, new NewEmail);
+
+        session()->flash('suucess', 'Mail Sent');
+
+        return back();
     }
 }

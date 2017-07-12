@@ -310,6 +310,21 @@
         <!-- Page JS Code -->
         <script src="{{ URL::to('assets/js/pages/base_pages_dashboard.js') }}"></script>
 
+        <script type="text/javascript">
+        @if(session()->has('success'))
+            swal({
+                type: 'success',
+                title: "{!! session('success') !!}"
+            })
+        @endif
+        @if(session()->has('error'))
+            swal({
+                type: 'error',
+                title: "{!! session('error') !!}"
+            })
+        @endif
+    </script>
+
         @yield('scripts')
     </body>
 </html>
