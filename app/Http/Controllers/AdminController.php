@@ -67,6 +67,7 @@ class AdminController extends Controller
             $user->order_count = 3;
         }
 
+        $user->paid = true;
         $user->save();
 
         $payment->status = 'successful';

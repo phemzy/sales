@@ -18,6 +18,15 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('rename', function(){
+	$users = App\User::all();
+	$users->map(function($u){
+		$u->hasPaid() ? $u->update(['paid' => true]) : '';
+	});
+
+	return App\User::where('paid', true)->get();
+});
+
 Auth::routes();
 Route::name('sale.user.register')->post('sale/user/register', 'Auth\RegisterController@registerSaleUser');
 
