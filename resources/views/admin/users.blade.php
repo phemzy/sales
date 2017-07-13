@@ -6,7 +6,7 @@
 		<div class="content content-boxed">
 			<div class="row">
 				<div class="col-md-12">
-					<a href="{{ route('mail.all') }}" class="btn btn-primary btn-block"> Mail ALL </a>
+					<a href="{{ route('mail.all') }}" class="btn btn-primary btn-block"> Mail ALL {{ session('users')->count() }}</a>
 					<table class="table table-striped">
 						<thead>
 							<th>S/N</th>

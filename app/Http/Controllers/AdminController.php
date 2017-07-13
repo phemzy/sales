@@ -110,7 +110,7 @@ class AdminController extends Controller
 
     public function flashSaleUsersPaid()
     {
-        $users = User::where('flash_sale_user', true);
+        $users = User::where('flash_sale_user', true)->where('paid', true);
 
         session(['users' => $users->get(), 'type' => 'Registered Flash Sale Users']);
 
@@ -121,9 +121,49 @@ class AdminController extends Controller
         ]);
     }
 
+    public function flashSaleUsersNotPaid()
+    {
+        $users = User::where('flash_sale_user', true)->where('paid', false);
+
+        session(['users' => $users->get(), 'type' => 'Registered Flash Sale Users']);
+
+        
+        return view('admin.users', [
+            'users' => $users->paginate(100),
+            'no' => 1
+        ]);
+    }
+
+
     public function c2nFlashSaleUsers()
     {
         $users = User::where('flash_sale_user', false)->whereNotNull('plan');
+
+        session(['users' => $users->get(), 'type' => 'C2N Users For Flash Sales']);
+
+        
+        return view('admin.users', [
+            'users' => $users->paginate(100),
+            'no' => 1
+        ]);
+    }
+
+    public function c2nFlashSaleUsersPaid()
+    {
+        $users = User::where('flash_sale_user', false)->whereNotNull('plan')->where('paid', true);
+
+        session(['users' => $users->get(), 'type' => 'C2N Users For Flash Sales']);
+
+        
+        return view('admin.users', [
+            'users' => $users->paginate(100),
+            'no' => 1
+        ]);
+    }
+
+    public function c2nFlashSaleUsersNotPaid()
+    {
+        $users = User::where('flash_sale_user', false)->whereNotNull('plan')->where('paid', false);
 
         session(['users' => $users->get(), 'type' => 'C2N Users For Flash Sales']);
 
@@ -143,6 +183,17 @@ class AdminController extends Controller
         
         return view('admin.users', [
             'users' => $users->paginate(100),
+            'no' => 1
+        ]);
+    }
+
+    public function allC2nUsers()
+    {
+        session(['users' => User::all(), 'type' => 'All C2N Users']);
+
+        
+        return view('admin.users', [
+            'users' => User::paginate(100),
             'no' => 1
         ]);
     }
