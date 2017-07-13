@@ -107,6 +107,19 @@ class AdminController extends Controller
         ]);
     }
 
+    public function flashSaleUsersPaid()
+    {
+        $users = User::where('flash_sale_user', true);
+
+        session(['users' => $users->get(), 'type' => 'Registered Flash Sale Users']);
+
+        
+        return view('admin.users', [
+            'users' => $users->paginate(100),
+            'no' => 1
+        ]);
+    }
+
     public function c2nFlashSaleUsers()
     {
         $users = User::where('flash_sale_user', false)->whereNotNull('plan');
