@@ -80,7 +80,7 @@ class AdminController extends Controller
 
     public function showPayments()
     {
-        $payments = Payment::all();
+        $payments = Payment::where('id', '!=', 16)->get();
 
         return view('admin.payments', [
             'payments' => $payments
