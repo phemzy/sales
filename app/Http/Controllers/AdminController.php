@@ -93,6 +93,7 @@ class AdminController extends Controller
         return redirect()->route('home');
     }
 
+
     public function flashSaleUsers()
     {
         $users = User::where('flash_sale_user', true);
@@ -108,7 +109,7 @@ class AdminController extends Controller
 
     public function c2nFlashSaleUsers()
     {
-        $users = User::where('flash_sale_user', false)->where('plan', !null);
+        $users = User::where('flash_sale_user', false)->whereNotNull('plan');
 
         session(['users' => $users->get(), 'type' => 'C2N Users For Flash Sales']);
 
