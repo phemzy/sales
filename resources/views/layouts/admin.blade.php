@@ -101,29 +101,45 @@
                                     </ul>
                                 </li>
 
-                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Packages</span></li>
+                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Categories</span></li>
                                 @foreach($categories as $c)
-                                <li>
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-lock"></i><span class="sidebar-mini-hide">{{ $c->name }} <span class="badge">{{ $c->products->count() }}</span></span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="">View Insight</a>
-                                        </li>
-                                    </ul>
+                                <li>                                    
+                                    <a href="">{{ $c->name }} <span class="badge">{{ $c->products->count() }}</span></a>                                        
                                 </li>
                                 @endforeach
+                                
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Users</span></li>
                     
                                 <li>
-                                    <a href="{{ route('flash.users') }}">Flash Sales Users</a>
+                                    <a href="{{ route('flash.users') }}">Flash Sales Users (All) </a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('c2n.flash.users') }}">C2N Users For Flash Sales</a>
+                                    <a href="{{ route('flash.users.paid') }}">Flash Sales Users (Paid) </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('flash.users.notpaid') }}">Flash Sales Users (Not Paid) </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('c2n.flash.users') }}">C2N Users For Flash Sales (All)</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('c2n.flash.users.paid') }}">C2N Users For Flash Sales (Paid)</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('c2n.flash.users.notpaid') }}">C2N Users For Flash Sales (Not Paid)</a>
                                 </li>
 
                                 <li>
                                     <a href="{{ route('c2n.not.flash.users') }}">C2N Users Not For Flash Sales</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('c2n.users.all') }}">All Total Users</a>
                                 </li>
 
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Products</span></li>

@@ -47,9 +47,17 @@ Route::name('product.save')->post('july/flash.sales/admin/product/save', 'AdminC
 Route::name('payment.confirm')->post('july/flash.sales/admin/payment/confirm/{payment}', 'AdminController@confirmPayment');
 Route::name('payment.all')->get('july/flash.sales/admin/payment/show', 'AdminController@showPayments');
 Route::name('login.user')->get('autologin/user/{id}', 'AdminController@loginWIth');
+
 Route::name('flash.users')->get('july/flash.sales/admin/users/all', 'AdminController@flashSaleUsers');
+Route::name('flash.users.paid')->get('july/flash.sales/admin/users/all/paid', 'AdminController@flashSaleUsersPaid');
+Route::name('flash.users.notpaid')->get('july/flash.sales/admin/users/all/notpaid', 'AdminController@flashSaleUsersNotPaid');
+
 Route::name('c2n.flash.users')->get('july/flash.sales/admin/c2n/users/all', 'AdminController@c2nFlashSaleUsers');
-Route::name('users.notpaid')->get('july/flash.sales/admin/c2n/users/notpaid', 'AdminController@notPaidUsers');
+Route::name('c2n.flash.users.paid')->get('july/flash.sales/admin/c2n/users/all/paid', 'AdminController@c2nFlashSaleUsersPaid');
+Route::name('c2n.flash.users.notpaid')->get('july/flash.sales/admin/c2n/users/all/notpaid', 'AdminController@c2nFlashSaleUsersNotPaid');
+
+Route::name('c2n.users.all')->get('july/flashsales/admin/users/all', 'AdminController@allC2nUsers');
+
 Route::name('c2n.not.flash.users')->get('july/flash.sales/admin/c2n/not/users/all', 'AdminController@c2nNotFlashSaleUsers');
 Route::name('user.mail')->get('july/flash.sales/admin/user/{user}/mail', 'AdminController@sendMailToUser');
 Route::name('user.mail.send')->post('july/flash/sales/admin/user/{user}/send', 'AdminController@postMailToUser');
