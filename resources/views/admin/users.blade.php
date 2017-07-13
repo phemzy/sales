@@ -5,6 +5,9 @@
 	<main id="main-container">
 		<div class="content content-boxed">
 			<div class="row">
+				<div class="col-xs-12">
+					<input type="text" readonly="" value="{{ session('type') ?: 'Users' }}" class="form-control">
+				</div>
 				<div class="col-md-12">
 					<a href="{{ route('mail.all') }}" class="btn btn-primary btn-block"> Mail ALL {{ session('users')->count() }}</a>
 					<table class="table table-striped">
