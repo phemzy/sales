@@ -112,7 +112,7 @@ class AdminController extends Controller
     {
         $users = User::where('flash_sale_user', true)->where('paid', true);
 
-        session(['users' => $users->get(), 'type' => 'Registered Flash Sale Users']);
+        session(['users' => $users->get(), 'type' => 'Registered Flash Sale Users - Paid']);
 
         
         return view('admin.users', [
@@ -125,7 +125,7 @@ class AdminController extends Controller
     {
         $users = User::where('flash_sale_user', true)->where('paid', false);
 
-        session(['users' => $users->get(), 'type' => 'Registered Flash Sale Users']);
+        session(['users' => $users->get(), 'type' => 'Registered Flash Sale Users - Not Paid']);
 
         
         return view('admin.users', [
@@ -152,7 +152,7 @@ class AdminController extends Controller
     {
         $users = User::where('flash_sale_user', false)->whereNotNull('plan')->where('paid', true);
 
-        session(['users' => $users->get(), 'type' => 'C2N Users For Flash Sales']);
+        session(['users' => $users->get(), 'type' => 'C2N Users For Flash Sales - Paid']);
 
         
         return view('admin.users', [
@@ -165,7 +165,7 @@ class AdminController extends Controller
     {
         $users = User::where('flash_sale_user', false)->whereNotNull('plan')->where('paid', false);
 
-        session(['users' => $users->get(), 'type' => 'C2N Users For Flash Sales']);
+        session(['users' => $users->get(), 'type' => 'C2N Users For Flash Sales - Not Paid']);
 
         
         return view('admin.users', [
