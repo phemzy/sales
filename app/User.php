@@ -42,6 +42,7 @@ class User extends Authenticatable
         return $u;
     }
 
+
     public function updatePlan()
     {
         $this->plan = 1;
