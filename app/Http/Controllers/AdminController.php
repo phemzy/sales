@@ -78,12 +78,20 @@ class AdminController extends Controller
         return back();
     }
 
+    public function cancelPayment(Payment $payment)
+    {
+        $payment->cancel();
+
+        return back();
+    }
+
     public function showPayments()
     {
         $payments = Payment::where('id', '!=', 16)->get();
 
         return view('admin.payments', [
-            'payments' => $payments
+            'payments' => $payments,
+            'no' => 1
         ]);
     }
 
@@ -177,6 +185,19 @@ class AdminController extends Controller
     public function c2nNotFlashSaleUsers()
     {
         $users = User::where('flash_sale_user', false)->where('plan', null);
+
+        session(['users' => $users->get(), 'type' => 'C2N Users Not For Flash Sales']);
+
+        
+        return view('admin.users', [
+            'users' => $users->paginate(100),
+            'no' => 1
+        ]);
+    }
+
+    public function inactiveUsers()
+    {
+        $users = User::where('empty_transaction', false)->where('plan', null);
 
         session(['users' => $users->get(), 'type' => 'C2N Users Not For Flash Sales']);
 

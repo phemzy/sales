@@ -54,6 +54,7 @@ Route::name('admin.index')->get('july/flash.sales/admin/index/show', 'AdminContr
 Route::name('product.add')->get('july/flash.sales/admin/product/add', 'AdminController@addProductForm');
 Route::name('product.save')->post('july/flash.sales/admin/product/save', 'AdminController@saveProduct');
 Route::name('payment.confirm')->post('july/flash.sales/admin/payment/confirm/{payment}', 'AdminController@confirmPayment');
+Route::name('payment.cancel')->post('july/flash.sales/admin/payment/cancel/{payment}', 'AdminController@cancelPayment');
 Route::name('payment.all')->get('july/flash.sales/admin/payment/show', 'AdminController@showPayments');
 Route::name('login.user')->get('autologin/user/{id}', 'AdminController@loginWIth');
 

@@ -11,4 +11,20 @@ class Payment extends Model
     {
     	return $this->belongsTo(User::class);
     }
+
+    public function isConfirmed()
+    {
+    	return $this->status == 'successful';
+    }
+
+    public function isCancelled()
+    {
+    	return $this->status == 'cancelled';
+    }
+
+    public function cancel()
+    {
+    	$this->status = 'cancelled';
+    	$this->save();
+    }
 }
