@@ -109,7 +109,7 @@ class AdminController extends Controller
 
         session(['users' => $users->get(), 'type' => 'Registered Flash Sale Users']);
 
-        dd($users->pluck('first_name'));
+        // dd($users->pluck('first_name'));
 
         
         return view('admin.users', [
