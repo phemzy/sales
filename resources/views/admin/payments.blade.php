@@ -46,6 +46,7 @@
                         @endforeach
                     </tbody>
                   </table>
+                  <h2 class="text-center">Total: &#8358;{{ number_format($payments->sum('amount'), 2) }} </h2>
 			</div>
 		</div>
 	</div>
