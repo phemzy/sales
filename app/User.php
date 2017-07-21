@@ -32,7 +32,7 @@ class User extends Authenticatable
 
     public function hasUpline()
     {
-        return $this->referred_by != null;
+        return $this->referred_by != null AND $this->upline() instanceof User;
     }
 
     public function upline()
