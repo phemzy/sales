@@ -6,6 +6,7 @@ use App\Plan;
 use Auth;
 use App\Payment;
 use Illuminate\Http\Request;
+use PDF;
 
 class PaymentController extends Controller
 {
@@ -35,5 +36,23 @@ class PaymentController extends Controller
     	Auth::user()->payments()->save($p);
 
     	return back();
+    }
+
+    public function generateInvoice()
+    {
+        if(request()->has('id')){
+            auth()->loginUsingId(request('id'));
+
+            if(auth()->user()->hasPaid()){
+                $pdf = PDF::loadView('invoice');
+                return $pdf->download('invoice.pdf');
+            }
+
+            auth()->logout();
+
+            session()->flash('error', 'Sorry, you are not qualified');
+
+            return redirect('/');  
+        }
     }
 }

@@ -30,6 +30,11 @@ class User extends Authenticatable
 
     protected $events = ['created' => UserCreated::class];
 
+    public function hasInvoice()
+    {
+        return $this->invoice == true;
+    }
+
     public function hasUpline()
     {
         return $this->referred_by != null AND $this->upline() instanceof User;

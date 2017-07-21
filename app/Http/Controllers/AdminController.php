@@ -8,6 +8,7 @@ use App\Notifications\NewEmail;
 use App\Product;
 use App\Payment;
 use Illuminate\Http\Request;
+use App\Notifications\PaymentInvoice;
 
 class AdminController extends Controller
 {
@@ -250,6 +251,18 @@ class AdminController extends Controller
         \Notification::send($users, new NewEmail(request()->all()));
 
         session()->flash('success', 'Mail Sent To All');
+
+        return back();
+    }
+
+    public function sendInvoice(User $user)
+    {
+        $user->notify(new PaymentInvoice($user));
+
+        $user->invoice = true;
+        $user->save();
+
+        session()->flash('success', 'Done.');
 
         return back();
     }
