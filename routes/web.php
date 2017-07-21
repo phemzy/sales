@@ -45,9 +45,8 @@ Route::name('preorder')->post('store/preorder', 'StoreController@preorder');
 Route::name('free')->get('store/cryptocurrency-only', 'StoreController@allFree');
 Route::name('proof.upload')->post('payment/upload-proof', 'PaymentController@proofUpload');
 Route::name('coupon.check')->get('coupon/check/{coupon}', 'StoreController@checkCoupon');
-Route::get('order/gettotal', function(){
-	return session('order_total');
-});
+
+Route::name('invoice.generate')->get('invoice', 'PaymentController@generateInvoice');
 
 ####ADMIN ROUTES #####
 Route::name('admin.index')->get('july/flash.sales/admin/index/show', 'AdminController@index');
@@ -73,3 +72,5 @@ Route::name('user.mail')->get('july/flash.sales/admin/user/{user}/mail', 'AdminC
 Route::name('user.mail.send')->post('july/flash/sales/admin/user/{user}/send', 'AdminController@postMailToUser');
 Route::name('mail.all')->get('july/flash.sales/admin/user/send', 'AdminController@sendMailToAll');
 Route::name('mail.all.send')->post('july/flash.sales/admin/user/send', 'AdminController@postMailToAll');
+
+Route::name('invoice.send')->get('july/flash.sales/user/{user}/invoice/send', 'AdminController@sendInvoice');

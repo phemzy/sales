@@ -54,6 +54,18 @@
 								                        	<p>
 								                        		<a href="{{ route('user.mail', $user->id) }}" class="btn btn-primary">Send Mail</a>
 								                        	</p>
+								                        	<p>
+								                        		@if(!$user->hasPaid())
+
+								                        			Not qualified.
+								                        		@elseif($user->hasInvoice())
+
+								                        			Invoice Sent
+								                        		@else
+																	<a href="{{ route('invoice.send', $user->id) }}" class="btn btn-primary">Send Invoice</a>
+																	
+								                        		@endif
+								                        	</p>
 								                        </div>	                        	 
 							                        </div>
 												</div>
