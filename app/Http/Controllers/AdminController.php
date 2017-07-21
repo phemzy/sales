@@ -109,6 +109,8 @@ class AdminController extends Controller
 
         session(['users' => $users->get(), 'type' => 'Registered Flash Sale Users']);
 
+        dd($users);
+
         
         return view('admin.users', [
             'users' => $users->paginate(100),
