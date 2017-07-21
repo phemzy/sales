@@ -26,7 +26,7 @@
 								<tr>
 									<td>{{ $no++ }}</td>
 									<td>{{ $user->id }}</td>
-									<td>{{-- {{ $user->fullname() }} --}}</td>
+									<td>{{ $user->fullname() }}</td>
 									<td>{{ $user->hasPaid() ? 'Paid' : 'Not Paid'}}</td>
 									<td class="text-capitalize">{{ $user->plans ? $user->plans->name : 'No Plan' }}</td>
 									<td>{{ $user->hasUpline() ? $user->upline()->fullname() : 'None' }}</td>
