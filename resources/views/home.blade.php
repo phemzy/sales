@@ -291,7 +291,7 @@
                                     <td>{{ auth()->user()->details->account_number }}</td>
                                     <td>{{ auth()->user()->plans->price/2 }}</td>
                                     <td>First Bacth</td>
-                                    <td>{{ auth()->user()->details->fully_paid ? 'Refunded' : 'Not Refunded'}}</td>
+                                    <td>{{ auth()->user()->details->fully_paid ? 'Refunded' : 'Pending'}}</td>
                                 </tr>
                             </tbody>
                         </table>
