@@ -257,12 +257,24 @@ class AdminController extends Controller
 
     public function sendInvoice(User $user)
     {
-        $user->notify(new PaymentInvoice($user));
-
         $user->invoice = true;
         $user->save();
 
+        $user->notify(new PaymentInvoice($user));
+
         session()->flash('success', 'Done.');
+
+        return back();
+    }
+
+    public function getAccountDetails(User $user)
+    {
+        return view('admin.refund', compact('user'));
+    }
+
+    public function markRefund(User $user)
+    {
+        $user->details()->update(['fully_paid' => true]);
 
         return back();
     }

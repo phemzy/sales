@@ -54,5 +54,7 @@ class PaymentController extends Controller
 
             return redirect('/');  
         }
+
+        return redirect('/');  
     }
 }

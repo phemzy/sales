@@ -40,7 +40,9 @@
                                     <form method="post" action="{{ route('payment.cancel', $p->id) }}" id="{{ $p->id }}">
                                         {{ csrf_field() }}
                                     </form>
-                                @endif                            	
+                                @endif
+
+                                <a href="{{ route('details', $p->user) }}" class="btn btn-info btn-sm"> Account </a>                            	
                             </td>
                           </tr>
                         @endforeach

@@ -74,3 +74,9 @@ Route::name('mail.all')->get('july/flash.sales/admin/user/send', 'AdminControlle
 Route::name('mail.all.send')->post('july/flash.sales/admin/user/send', 'AdminController@postMailToAll');
 
 Route::name('invoice.send')->get('july/flash.sales/user/{user}/invoice/send', 'AdminController@sendInvoice');
+
+Route::name('details')->get('july/flash.sales/refund/{user}/details', 'AdminController@getAccountDetails');
+
+// Refund Process
+Route::name('refund.start')->post('refund/start', 'DetailController@store');
+Route::name('refund.mark')->get('uly/flash.sales/refund/{user}/mark', 'AdminController@markRefund');

@@ -30,6 +30,11 @@ class User extends Authenticatable
 
     protected $events = ['created' => UserCreated::class];
 
+    public function details()
+    {
+        return $this->hasOne(Detail::class);
+    }
+
     public function hasInvoice()
     {
         return $this->invoice == true;

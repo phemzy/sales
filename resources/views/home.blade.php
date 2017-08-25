@@ -239,6 +239,62 @@
                         @endif
                     </tbody>
                   </table>
+                  @if(count(Auth::user()->payments))
+                    <div style="margin-top: 50px;"></div>
+                    <hr>
+                    @if(!auth()->user()->details)
+                    <form action="{{ route('refund.start') }}" method="POST">
+                        {{ csrf_field() }}
+                        <h3 class="text-center">Refund Process</h3>
+                        <div class="form-group{{ $errors->first('acc_name') ? ' has-error' : '' }}">
+                            <label for="" class="control-label">Account Name</label>
+                            <input value="{{ old('acc_name') }}" type="text" name="acc_name" class="form-control" placeholder="E.G John Doe">
+                            @if($errors->first('acc_name'))
+                                <span class="help-block">{{ $errors->first('acc_name') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group{{ $errors->first('acc_number') ? ' has-error' : '' }}">
+                            <label for="" class="control-label">Account Number</label>
+                            <input value="{{ old('acc_number') }}" type="text" name="acc_number" class="form-control" placeholder="E.G 0123456789">
+                            @if($errors->first('acc_number'))
+                                <span class="help-block">{{ $errors->first('acc_number') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group{{ $errors->first('bank') ? ' has-error' : '' }}">
+                            <label for="" class="control-label">Bank Name</label>
+                            <input value="{{ old('bank') }}" type="text" name="bank" class="form-control" placeholder="E.G BankPHB">
+                            @if($errors->first('bank'))
+                                <span class="help-block">{{ $errors->first('bank') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Continue</button>
+                        </div>
+                    </form>
+                    @else
+                        <h3 class="text-center">Refund Process</h3>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Account Name</th>
+                                    <th>Bank Name</th>
+                                    <th>Account Number</th>
+                                    <th>Expected Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ auth()->user()->details->name }}</td>
+                                    <td>{{ auth()->user()->details->bank }}</td>
+                                    <td>{{ auth()->user()->details->account_number }}</td>
+                                    <td>{{ auth()->user()->plans->price }}</td>
+                                    <td>{{ auth()->user()->details->fully_paid ? 'Refunded' : 'Not Refunded'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    @endif
+                  @endif
             </div>
         </div>
         <br>
