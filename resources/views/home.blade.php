@@ -280,6 +280,7 @@
                                     <th>Bank Name</th>
                                     <th>Account Number</th>
                                     <th>Expected Amount</th>
+                                    <th>Batch</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -288,7 +289,8 @@
                                     <td>{{ auth()->user()->details->name }}</td>
                                     <td>{{ auth()->user()->details->bank }}</td>
                                     <td>{{ auth()->user()->details->account_number }}</td>
-                                    <td>{{ auth()->user()->plans->price }}</td>
+                                    <td>{{ auth()->user()->plans->price/2 }}</td>
+                                    <td>First Bacth</td>
                                     <td>{{ auth()->user()->details->fully_paid ? 'Refunded' : 'Not Refunded'}}</td>
                                 </tr>
                             </tbody>
