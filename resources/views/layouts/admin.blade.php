@@ -22,31 +22,9 @@
         <link rel="stylesheet" href="{{ URL::to('assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" id="css-main" href="{{ URL::to('assets/css/oneui.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
-
-        <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
-        <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
-        <!-- END Stylesheets -->
     </head>
     <body>
-        <!-- Page Container -->
-        <!--
-            Available Classes:
 
-            'enable-cookies'             Remembers active color theme between pages (when set through color theme list)
-
-            'sidebar-l'                  Left Sidebar and right Side Overlay
-            'sidebar-r'                  Right Sidebar and left Side Overlay
-            'sidebar-mini'               Mini hoverable Sidebar (> 991px)
-            'sidebar-o'                  Visible Sidebar by default (> 991px)
-            'sidebar-o-xs'               Visible Sidebar by default (< 992px)
-
-            'side-overlay-hover'         Hoverable Side Overlay (> 991px)
-            'side-overlay-o'             Visible Side Overlay by default (> 991px)
-
-            'side-scroll'                Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (> 991px)
-
-            'header-navbar-fixed'        Enables fixed header
-        -->
         <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">
             <!-- Sidebar -->
             <nav id="sidebar">
@@ -262,9 +240,9 @@
                         </button>
                     </li>
                     <li class="js-header-search header-search">
-                        <form class="form-horizontal" action="base_pages_search.html" method="post">
+                        <form class="form-horizontal" action="{{ route('search') }}" method="get">
                             <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
-                                <input class="form-control" type="text" id="base-material-text" name="base-material-text" placeholder="Search..">
+                                <input class="form-control" type="text" id="base-material-text" name="search" placeholder="Search..">
                                 <span class="input-group-addon"><i class="si si-magnifier"></i></span>
                             </div>
                         </form>

@@ -27,6 +27,8 @@ Route::get('rename', function(){
 	return App\User::where('paid', true)->get();
 });
 
+Route::name('search')->get('search', 'SearchController@search');
+
 Auth::routes();
 Route::name('sale.user.register')->post('sale/user/register', 'Auth\RegisterController@registerSaleUser');
 
