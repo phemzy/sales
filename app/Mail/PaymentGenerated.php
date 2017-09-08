@@ -6,23 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\{Voucher, Transaction};
+use App\User;
 
-class VoucherReverted extends Mailable
+class PaymentGenerated extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $voucher, $transaction;
+    public $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Voucher $voucher, Transaction $transaction)
+    public function __construct(User $user)
     {
-        $this->voucher = $voucher;
-        $this->transaction = $transaction;
+        $this->user = $user;
     }
 
     /**
@@ -32,6 +31,6 @@ class VoucherReverted extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.voucher.revert');
+        return $this->markdown('emails.payment.refund');
     }
 }

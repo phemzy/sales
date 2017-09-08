@@ -10,7 +10,7 @@ use App\Payment;
 use Illuminate\Http\Request;
 use App\Notifications\PaymentInvoice;
 use App\{Voucher, Transaction, Market, Package};
-use App\Mail\VoucherReverted;
+use App\Mail\{VoucherReverted, PaymentGenerated};
 
 class AdminController extends Controller
 {
@@ -277,6 +277,8 @@ class AdminController extends Controller
     public function markRefund(User $user)
     {
         $user->details()->update(['fully_paid' => true]);
+
+        \Mail::to($user)->send(new PaymentGenerated($user));
 
         return back();
     }
