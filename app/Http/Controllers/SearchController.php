@@ -11,7 +11,7 @@ class SearchController extends Controller
     {
     	$search = request('search');
 
-    	$users = User::where(\DB::raw('CONCAT(first_name, last_name)'), 'LIKE', "%{$search}%")->orWhere('username', "LIKE", "%{$search}%")->get();
+    	$users = User::where(\DB::raw('CONCAT(first_name, last_name)'), 'LIKE', "%{$search}%")->orWhere('username', "LIKE", "%{$search}%")->orWhere('email', "LIKE", "%{$search}%")->get();
 
     	return view('search.index')->withUsers($users);
     }
