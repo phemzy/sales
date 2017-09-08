@@ -12,7 +12,8 @@ class VoucherReverted extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $voucher, $transaction;
+    public $voucher;
+    public $transaction;
 
     /**
      * Create a new message instance.
