@@ -79,4 +79,6 @@ Route::name('details')->get('july/flash.sales/refund/{user}/details', 'AdminCont
 
 // Refund Process
 Route::name('refund.start')->post('refund/start', 'DetailController@store');
-Route::name('refund.mark')->get('uly/flash.sales/refund/{user}/mark', 'AdminController@markRefund');
+Route::name('refund.mark')->get('july/flash.sales/refund/{user}/mark', 'AdminController@markRefund');
+Route::name('vouchers.all')->get('july/flash.sales/vouchers', 'AdminController@getVouchers');
+Route::name('voucher.revert')->get('july/flash/{voucher}/revert', 'AdminController@revertVoucher');

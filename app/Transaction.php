@@ -7,7 +7,7 @@ use App\User;
 
 class Transaction extends Model
 {
-    protected $fillable = ['user_id', 'recipient_id', 'status', 'market_id'];
+    protected $fillable = ['user_id', 'recipient_id', 'package_id', 'type', 'status', 'market_id', 'created_at'];
     //
     public function user()
     {

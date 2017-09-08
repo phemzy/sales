@@ -98,6 +98,9 @@
                                         <li>
                                             <a href="{{ route('payment.all') }}">View Insight</a>
                                         </li>
+                                        <li>
+                                            <a href="{{ route('vouchers.all') }}">Vouchers</a>
+                                        </li>
                                     </ul>
                                 </li>
 

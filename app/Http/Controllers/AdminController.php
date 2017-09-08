@@ -9,6 +9,8 @@ use App\Product;
 use App\Payment;
 use Illuminate\Http\Request;
 use App\Notifications\PaymentInvoice;
+use App\{Voucher, Transaction, Market, Package};
+use App\Mail\VoucherReverted;
 
 class AdminController extends Controller
 {
@@ -275,6 +277,40 @@ class AdminController extends Controller
     public function markRefund(User $user)
     {
         $user->details()->update(['fully_paid' => true]);
+
+        return back();
+    }
+
+    public function getVouchers()
+    {
+        $vouchers = Voucher::with('owner')->get();
+
+        return view('admin.vouchers.all', compact('vouchers'));
+    }
+
+    public function revertVoucher(Voucher $voucher)
+    {
+        $package = Package::where('amount', $voucher->amount)->first();
+
+        $t = Transaction::create([
+
+                'user_id' => $voucher->user_id,
+
+                'market_id' => Market::where('abbr_name', 'TBC')->first()->id,
+
+                'package_id' => $package->id,
+
+                'status' => 'pending',
+
+                'type' => 'sell',
+
+                'created_at' => $voucher->created_at
+
+            ]);
+
+        \Mail::to($voucher->owner)->send(new VoucherReverted($voucher, $t));
+
+        $voucher->delete();
 
         return back();
     }

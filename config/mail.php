@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'no-reply@crypto2naira.com'),
-        'name' => env('MAIL_FROM_NAME', 'Support'),
+        'name' => env('MAIL_FROM_NAME', 'Crypto2Naira'),
     ],
 
     /*
